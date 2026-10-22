@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.mirea.controller.SearchDialogController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+    </padding>
+
+    <Label text="ПОИСК" styleClass="label"/>
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="120.0"/>
+            <ColumnConstraints prefWidth="200.0"/>
+        </columnConstraints>
+        
+        <Label text="Адрес содержит:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="addressSearchField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        
+        <Label text="Тип отходов:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="typeSearchBox" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <Label text="ФИЛЬТРАЦИЯ" styleClass="label"/>
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="120.0"/>
+            <ColumnConstraints prefWidth="200.0"/>
+        </columnConstraints>
+
+        <Label text="Статус:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="statusFilterBox" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        
+        <Label text="Мин. объем (м3):" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="volumeFilterField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <Label text="СОРТИРОВКА" styleClass="label"/>
+    <ComboBox fx:id="sortBox" prefWidth="330.0"/>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10.0" style="-fx-padding: 10 0 0 0;">
+        <Button text="Применить" onAction="#handleApply" prefWidth="100.0"/>
+        <Button text="Сбросить" onAction="#handleReset" prefWidth="100.0"/>
+    </HBox>
+</VBox>
